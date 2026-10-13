@@ -1,0 +1,12 @@
+Oct 13 09:15:22 kernel[1024]: ERROR: Fallo al inicializar el dispositivo de red
+Oct 13 09:16:05 NetworkManager[2048]: error al establecer la conexion
+Oct 13 09:17:31 systemd[1]: Started Network Manager successfully
+Oct 13 09:18:44 sshd[3092]: FAILED password attempt for user admin
+Oct 13 09:19:12 apache2[4120]: CRITICAL: no se pudo iniciar el servicio web
+Oct 13 09:20:03 cron[512]: tarea programada ejecutada correctamente
+Oct 13 09:21:17 kernel: [1024] warning: temperatura elevada
+Oct 13 09:22:50 systemd[1]: critical resource limit reached
+Oct 13 09:23:08 NetworkManager[2048]: Conexion de red restablecida
+Oct 13 09:24:36 sshd[3092]: error: authentication failure
+Oct 13 09:25:49 database[6789]: FAIL al conectar con el servidor
+Oct 13 09:26:14 backup[7210]: backup completed successfully

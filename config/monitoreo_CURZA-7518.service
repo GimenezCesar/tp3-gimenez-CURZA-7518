@@ -1,0 +1,8 @@
+[Unit]
+Description=Diagnostico de conectividad de red CURZA-7518
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/gimenezcesar/tp3-gimenez-CURZA-7518
+ExecStart=/bin/bash /home/gimenezcesar/tp3-gimenez-CURZA-7518/codigo/diagnostico_red.sh

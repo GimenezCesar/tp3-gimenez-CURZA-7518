@@ -1,0 +1,10 @@
+[Unit]
+Description=Temporizador de diagnostico de red CURZA-7518
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+Unit=monitoreo_CURZA-7518.service
+
+[Install]
+WantedBy=timers.target

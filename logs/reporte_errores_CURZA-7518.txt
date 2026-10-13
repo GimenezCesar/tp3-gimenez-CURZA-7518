@@ -1,0 +1,9 @@
+FECHA  HORA     PROCESO            MENSAJE
+------ -------- ------------------ ----------------------------------------
+Oct 13 09:15:22 kernel             ERROR: Fallo al inicializar el dispositivo de red
+Oct 13 09:16:05 NetworkManager     error al establecer la conexion
+Oct 13 09:18:44 sshd               FAILED password attempt for user admin
+Oct 13 09:19:12 apache2            CRITICAL: no se pudo iniciar el servicio web
+Oct 13 09:22:50 systemd            critical resource limit reached
+Oct 13 09:24:36 sshd               error: authentication failure
+Oct 13 09:25:49 database           FAIL al conectar con el servidor
