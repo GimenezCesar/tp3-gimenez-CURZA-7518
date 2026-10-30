@@ -2,7 +2,8 @@
 
 # Descarga un archivo desde una URL en el directorio descargas.
 
-DIRECTORIO="/home/gimenezcesar/tp3-gimenez-CURZA-7518"
+DIRECTORIO_CODIGO="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+DIRECTORIO="$(dirname "$DIRECTORIO_CODIGO")"
 DESTINO="$DIRECTORIO/descargas"
 
 # Verificar que se haya proporcionado una URL.
@@ -20,7 +21,10 @@ if [[ ! "$URL" =~ ^https?:// ]]; then
 fi
 
 # Crear el directorio de destino si no existe.
-mkdir -p "$DESTINO"
+if ! mkdir -p "$DESTINO"; then
+    echo "Error: no se pudo crear el directorio de descargas."
+    exit 1
+fi
 
 # Descargar el archivo y guardar el resultado.
 if wget -P "$DESTINO" "$URL"; then

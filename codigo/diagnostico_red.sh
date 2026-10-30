@@ -3,9 +3,32 @@
 # Comprueba la conectividad con la puerta de enlace local
 # y registra el resultado con fecha y hora.
 
-DIRECTORIO="/home/gimenezcesar/tp3-gimenez-CURZA-7518"
+DIRECTORIO_CODIGO="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+DIRECTORIO="$(dirname "$DIRECTORIO_CODIGO")"
 ARCHIVO_LOG="$DIRECTORIO/logs/ping_report_CURZA-7518.log"
-PUERTA_ENLACE="10.0.2.2"
+
+# Detectar automáticamente la puerta de enlace predeterminada.
+PUERTA_ENLACE=$(ip -4 route show default | awk '
+{
+    for (i = 1; i <= NF; i++) {
+        if ($i == "via") {
+            print $(i + 1)
+            exit
+        }
+    }
+}')
+
+# Comprobar que se haya encontrado una puerta de enlace.
+if [[ -z "$PUERTA_ENLACE" ]]; then
+    echo "Error: no se pudo detectar la puerta de enlace." >&2
+    exit 1
+fi
+
+# Crear el directorio de registros si no existe.
+if ! mkdir -p "$(dirname "$ARCHIVO_LOG")"; then
+    echo "Error: no se pudo crear el directorio de registros." >&2
+    exit 1
+fi
 
 FECHA_HORA=$(date '+%Y-%m-%d %H:%M:%S')
 
